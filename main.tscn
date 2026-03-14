@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cn5av5i15t5kb"]
+[gd_scene format=3 uid="uid://cn5av5i15t5kb"]
 
 [ext_resource type="Script" uid="uid://5sylf6lgjttj" path="res://scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bgl8vingbgj54" path="res://scripts/puck.gd" id="2_0xm2m"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://5ve70qvhg7io" path="res://assets/sfx/goal.wav" id="7_kek77"]
 [ext_resource type="AudioStream" uid="uid://88nlbnf5bfyl" path="res://assets/sfx/paddle.mp3" id="8_4c57u"]
 [ext_resource type="AudioStream" uid="uid://jaal5sahobve" path="res://assets/sfx/wall.mp3" id="9_efxa6"]
+[ext_resource type="Texture2D" uid="uid://bmiy22yskvhy6" path="res://icon.svg" id="10_4c57u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7dm0k"]
 friction = 0.0
@@ -53,162 +54,162 @@ radius = 32.0
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
 font_size = 48
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=801075516]
 script = ExtResource("1_ig7tw")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=2083440593]
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.09411765, 0.078431375, 0.14509805, 1)
 
-[node name="Table" type="Node2D" parent="."]
+[node name="Table" type="Node2D" parent="." unique_id=1278614354]
 
-[node name="TopRailSprite" type="ColorRect" parent="Table"]
+[node name="TopRailSprite" type="ColorRect" parent="Table" unique_id=598087057]
 offset_right = 1280.0
 offset_bottom = 32.0
 
-[node name="BottomRailSprite" type="ColorRect" parent="Table"]
+[node name="BottomRailSprite" type="ColorRect" parent="Table" unique_id=382416172]
 offset_top = 608.0
 offset_right = 1280.0
 offset_bottom = 640.0
 
-[node name="LeftTopSprite" type="ColorRect" parent="Table"]
+[node name="LeftTopSprite" type="ColorRect" parent="Table" unique_id=981360841]
 offset_top = 32.0
 offset_right = 32.0
 offset_bottom = 224.0
 color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
-[node name="LeftBottomSprite" type="ColorRect" parent="Table"]
+[node name="LeftBottomSprite" type="ColorRect" parent="Table" unique_id=814964198]
 offset_top = 416.0
 offset_right = 32.0
 offset_bottom = 608.0
 color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
-[node name="RightTopSprite" type="ColorRect" parent="Table"]
+[node name="RightTopSprite" type="ColorRect" parent="Table" unique_id=871767581]
 offset_left = 1248.0
 offset_top = 32.0
 offset_right = 1280.0
 offset_bottom = 224.0
 color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
-[node name="RightBottomSprite" type="ColorRect" parent="Table"]
+[node name="RightBottomSprite" type="ColorRect" parent="Table" unique_id=53166996]
 offset_left = 1248.0
 offset_top = 416.0
 offset_right = 1280.0
 offset_bottom = 608.0
 color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Walls" type="Node2D" parent="." unique_id=438437872]
 
-[node name="Top" type="StaticBody2D" parent="Walls" groups=["walls"]]
+[node name="Top" type="StaticBody2D" parent="Walls" unique_id=1922816637 groups=["walls"]]
 collision_layer = 128
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
 
-[node name="TopCollision" type="CollisionShape2D" parent="Walls/Top"]
+[node name="TopCollision" type="CollisionShape2D" parent="Walls/Top" unique_id=1606981860]
 position = Vector2(640, 16)
 shape = SubResource("RectangleShape2D_ig7tw")
 
-[node name="Bottom" type="StaticBody2D" parent="Walls" groups=["walls"]]
+[node name="Bottom" type="StaticBody2D" parent="Walls" unique_id=1050857146 groups=["walls"]]
 collision_layer = 128
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
 
-[node name="BottomCollision" type="CollisionShape2D" parent="Walls/Bottom"]
+[node name="BottomCollision" type="CollisionShape2D" parent="Walls/Bottom" unique_id=1628669086]
 position = Vector2(640, 624)
 shape = SubResource("RectangleShape2D_7dm0k")
 
-[node name="LeftTop" type="StaticBody2D" parent="Walls" groups=["walls"]]
+[node name="LeftTop" type="StaticBody2D" parent="Walls" unique_id=2696589 groups=["walls"]]
 collision_layer = 128
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
 
-[node name="LeftTopCollision" type="CollisionShape2D" parent="Walls/LeftTop"]
+[node name="LeftTopCollision" type="CollisionShape2D" parent="Walls/LeftTop" unique_id=1259018525]
 position = Vector2(16, 128)
 shape = SubResource("RectangleShape2D_0xm2m")
 
-[node name="LeftBottom" type="StaticBody2D" parent="Walls" groups=["walls"]]
+[node name="LeftBottom" type="StaticBody2D" parent="Walls" unique_id=603925453 groups=["walls"]]
 collision_layer = 128
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
 
-[node name="LeftBottomCollision" type="CollisionShape2D" parent="Walls/LeftBottom"]
+[node name="LeftBottomCollision" type="CollisionShape2D" parent="Walls/LeftBottom" unique_id=1136119091]
 position = Vector2(16, 512)
 shape = SubResource("RectangleShape2D_h2yge")
 
-[node name="RightTop" type="StaticBody2D" parent="Walls" groups=["walls"]]
+[node name="RightTop" type="StaticBody2D" parent="Walls" unique_id=1631415247 groups=["walls"]]
 collision_layer = 128
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
 
-[node name="RightTopCollision" type="CollisionShape2D" parent="Walls/RightTop"]
+[node name="RightTopCollision" type="CollisionShape2D" parent="Walls/RightTop" unique_id=1472479116]
 position = Vector2(1264, 128)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="RightBottom" type="StaticBody2D" parent="Walls" groups=["walls"]]
+[node name="RightBottom" type="StaticBody2D" parent="Walls" unique_id=1906159222 groups=["walls"]]
 collision_layer = 128
 collision_mask = 8
 physics_material_override = SubResource("PhysicsMaterial_7dm0k")
 
-[node name="RightBottomCollision" type="CollisionShape2D" parent="Walls/RightBottom"]
+[node name="RightBottomCollision" type="CollisionShape2D" parent="Walls/RightBottom" unique_id=1551897125]
 position = Vector2(1264, 512)
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="Goals" type="Node2D" parent="."]
+[node name="Goals" type="Node2D" parent="." unique_id=1119328286]
 
-[node name="Left" type="Area2D" parent="Goals"]
+[node name="Left" type="Area2D" parent="Goals" unique_id=1575176504]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("2_1bvp3")
 
-[node name="LeftCollision" type="CollisionShape2D" parent="Goals/Left"]
+[node name="LeftCollision" type="CollisionShape2D" parent="Goals/Left" unique_id=1935563642]
 position = Vector2(-48, 320)
 shape = SubResource("RectangleShape2D_7mycd")
 
-[node name="Right" type="Area2D" parent="Goals"]
+[node name="Right" type="Area2D" parent="Goals" unique_id=489994913]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("3_7mycd")
 
-[node name="RightCollision" type="CollisionShape2D" parent="Goals/Right"]
+[node name="RightCollision" type="CollisionShape2D" parent="Goals/Right" unique_id=1410018776]
 position = Vector2(1328, 320)
 shape = SubResource("RectangleShape2D_272bh")
 
-[node name="Paddle1" type="CharacterBody2D" parent="." groups=["paddles"]]
+[node name="Paddle1" type="CharacterBody2D" parent="." unique_id=151494449 groups=["paddles"]]
 position = Vector2(320, 320)
 collision_layer = 2
 collision_mask = 8
 motion_mode = 1
 script = ExtResource("3_lquwl")
 
-[node name="Paddle1Collision" type="CollisionShape2D" parent="Paddle1"]
+[node name="Paddle1Collision" type="CollisionShape2D" parent="Paddle1" unique_id=358396838]
 shape = SubResource("CircleShape2D_ig7tw")
 
-[node name="Paddle1Sprite" type="ColorRect" parent="Paddle1"]
+[node name="Paddle1Sprite" type="ColorRect" parent="Paddle1" unique_id=1026199904]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 color = Color(1, 0, 1, 1)
 
-[node name="Paddle2" type="CharacterBody2D" parent="." groups=["paddles"]]
+[node name="Paddle2" type="CharacterBody2D" parent="." unique_id=2002581270 groups=["paddles"]]
 position = Vector2(960, 320)
 collision_layer = 2
 collision_mask = 8
 motion_mode = 1
 script = ExtResource("4_lquwl")
 
-[node name="Paddle2Collision" type="CollisionShape2D" parent="Paddle2"]
+[node name="Paddle2Collision" type="CollisionShape2D" parent="Paddle2" unique_id=1707010988]
 shape = SubResource("CircleShape2D_0xm2m")
 
-[node name="Paddle2Sprite" type="ColorRect" parent="Paddle2"]
+[node name="Paddle2Sprite" type="ColorRect" parent="Paddle2" unique_id=1850379703]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 color = Color(1, 0, 1, 1)
 
-[node name="Puck" type="RigidBody2D" parent="." groups=["puck"]]
+[node name="Puck" type="RigidBody2D" parent="." unique_id=1240094807 groups=["puck"]]
 position = Vector2(640, 320)
 collision_layer = 8
 collision_mask = 130
@@ -220,21 +221,21 @@ linear_damp = 0.05
 angular_damp = 2.0
 script = ExtResource("2_0xm2m")
 
-[node name="PuckCollision" type="CollisionShape2D" parent="Puck"]
+[node name="PuckCollision" type="CollisionShape2D" parent="Puck" unique_id=890207724]
 shape = SubResource("CircleShape2D_h2yge")
 
-[node name="PuckSprite" type="ColorRect" parent="Puck"]
+[node name="PuckSprite" type="ColorRect" parent="Puck" unique_id=608705087]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 color = Color(1, 1, 0, 1)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1488076385]
 offset = Vector2(0, 640)
 transform = Transform2D(1, 0, 0, 1, 0, 640)
 
-[node name="ScoreP1" type="Label" parent="UI"]
+[node name="ScoreP1" type="Label" parent="UI" unique_id=596870175]
 offset_left = 608.0
 offset_top = 8.0
 offset_right = 640.0
@@ -242,7 +243,7 @@ offset_bottom = 80.0
 text = "0"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="HitP1" type="Label" parent="UI"]
+[node name="HitP1" type="Label" parent="UI" unique_id=1734815325]
 offset_left = 320.0
 offset_top = 8.0
 offset_right = 352.0
@@ -250,7 +251,7 @@ offset_bottom = 80.0
 text = "0"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="ScoreP2" type="Label" parent="UI"]
+[node name="ScoreP2" type="Label" parent="UI" unique_id=177282395]
 offset_left = 648.0
 offset_top = 8.0
 offset_right = 680.0
@@ -258,7 +259,7 @@ offset_bottom = 80.0
 text = "0"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="HitP2" type="Label" parent="UI"]
+[node name="HitP2" type="Label" parent="UI" unique_id=1602837205]
 offset_left = 960.0
 offset_top = 8.0
 offset_right = 992.0
@@ -266,7 +267,7 @@ offset_bottom = 80.0
 text = "0"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="WinnerP1" type="Label" parent="UI"]
+[node name="WinnerP1" type="Label" parent="UI" unique_id=233500268]
 offset_left = 256.0
 offset_top = -576.0
 offset_right = 504.0
@@ -274,7 +275,7 @@ offset_bottom = -509.0
 text = "Winner"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="WinnerP2" type="Label" parent="UI"]
+[node name="WinnerP2" type="Label" parent="UI" unique_id=1258624159]
 offset_left = 896.0
 offset_top = -584.0
 offset_right = 1144.0
@@ -282,19 +283,26 @@ offset_bottom = -517.0
 text = "Winner"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="SFX" type="Node" parent="."]
+[node name="BackButton" type="Button" parent="UI" unique_id=490193906]
+offset_right = 88.0
+offset_bottom = 64.0
+icon = ExtResource("10_4c57u")
+expand_icon = true
 
-[node name="GoalSound" type="AudioStreamPlayer" parent="SFX"]
+[node name="SFX" type="Node" parent="." unique_id=1258437257]
+
+[node name="GoalSound" type="AudioStreamPlayer" parent="SFX" unique_id=928897807]
 stream = ExtResource("7_kek77")
 
-[node name="HitSound" type="AudioStreamPlayer" parent="SFX"]
+[node name="HitSound" type="AudioStreamPlayer" parent="SFX" unique_id=937245448]
 stream = ExtResource("8_4c57u")
 
-[node name="WallSound" type="AudioStreamPlayer" parent="SFX"]
+[node name="WallSound" type="AudioStreamPlayer" parent="SFX" unique_id=922033733]
 stream = ExtResource("9_efxa6")
 
-[node name="ResetTimer" type="Timer" parent="."]
+[node name="ResetTimer" type="Timer" parent="." unique_id=1607986310]
 wait_time = 1.2
 one_shot = true
 
 [connection signal="body_entered" from="Puck" to="Puck" method="_on_body_entered"]
+[connection signal="pressed" from="UI/BackButton" to="." method="_on_back_button_pressed"]

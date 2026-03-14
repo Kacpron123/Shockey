@@ -100,9 +100,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.keycode == KEY_R):
 		get_tree().reload_current_scene()
 		
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://title.tscn")
+
 func _process(delta: float) -> void:
 	# use sprite score and charge bar
 	label_p1.text = str(score[0])
 	label_p2.text = str(score[1])
 	$UI/HitP1.text = str(hit_count[0])
 	$UI/HitP2.text = str(hit_count[1])
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://title.tscn")
