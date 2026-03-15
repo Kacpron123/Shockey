@@ -1,8 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	$StartButton.pressed.connect(_start_button_pressed)
-	$QuitButton.pressed.connect(_quit_button_pressed) 
+	$Buttons/StartButton.pressed.connect(_start_button_pressed)
+	$Buttons/QuitButton.pressed.connect(_quit_button_pressed) 
 
 func _process(delta: float) -> void:
 	pass

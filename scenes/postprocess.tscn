@@ -4,15 +4,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6xt38"]
 shader = ExtResource("1_kbw42")
-shader_parameter/first_color = Color(1, 0.5058824, 0.2901961, 1)
-shader_parameter/second_color = Color(0.29518467, 0.44086185, 0.30973774, 1)
+shader_parameter/first_color = Color(0.97, 0.94526505, 0.4753, 1)
+shader_parameter/second_color = Color(0.043137256, 0.09019608, 0.14901961, 1)
 
 [node name="Node2D" type="Node2D" unique_id=2109971418]
 z_index = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1430844723]
 layer = 100
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1514073470]
 top_level = true

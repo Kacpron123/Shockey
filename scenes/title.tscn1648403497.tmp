@@ -19,7 +19,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2_pyl7j")
 
-[node name="Buttons" type="VBoxContainer" parent="." unique_id=166258248]
+[node name="Buttons2" type="VBoxContainer" parent="." unique_id=166258248]
 offset_left = 832.0
 offset_top = 288.0
 offset_right = 971.0
@@ -27,15 +27,20 @@ offset_bottom = 410.0
 scale = Vector2(2, 2)
 theme_override_constants/separation = 8
 
-[node name="StartButton" type="Button" parent="Buttons" unique_id=1722307420]
+[node name="StartButton" type="Button" parent="Buttons2" unique_id=1722307420]
 texture_filter = 1
 layout_mode = 2
 icon = ExtResource("3_b3w7a")
 flat = true
 
-[node name="QuitButton" type="Button" parent="Buttons" unique_id=1343446097]
+[node name="QuitButton" type="Button" parent="Buttons2" unique_id=1343446097]
 texture_filter = 1
 layout_mode = 2
 icon = ExtResource("4_4rr2b")
 flat = true
 icon_alignment = 1
+
+[node name="Buttons" type="CanvasLayer" parent="." unique_id=36829733]
+
+[connection signal="pressed" from="Buttons2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons2/QuitButton" to="." method="_on_quit_button_pressed"]
