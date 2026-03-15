@@ -15,8 +15,8 @@ var game_active := true
 @onready var paddle2         : Paddle            = $Paddle2
 @onready var label_p1        : Label             = $UI/ScoreP1
 @onready var label_p2        : Label             = $UI/ScoreP2
-@onready var winner_p1 : Label             = $UI/WinnerP1
-@onready var winner_p2 : Label             = $UI/WinnerP2
+@onready var winner_p1       : Label             = $UI/WinnerP1
+@onready var winner_p2       : Label             = $UI/WinnerP2
 @onready var sfx_goal        : AudioStreamPlayer = $SFX/GoalSound
 @onready var sfx_hit         : AudioStreamPlayer = $SFX/HitSound
 @onready var sfx_wall        : AudioStreamPlayer = $SFX/WallSound
@@ -76,7 +76,7 @@ func _reset_puck(towards_player: int) -> void:
 func _end_game(winner: int) -> void:
 	game_active = false
 	puck.freeze = true
-	if winner == 0: winner_p1.visible = true
+	if winner == 1: winner_p1.visible = true
 	else: winner_p2.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:
