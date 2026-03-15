@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccq7ix01y42to"]
 
-[ext_resource type="Script" uid="uid://1je71nydq3dr" path="res://scripts/title.gd" id="1_y7k74"]
+[ext_resource type="Script" uid="uid://1je71nydq3dr" path="res://scripts/title.gd" id="1_4ignj"]
 
 [node name="Title" type="Node2D" unique_id=35178792]
-script = ExtResource("1_y7k74")
+script = ExtResource("1_4ignj")
 
 [node name="BG" type="ColorRect" parent="." unique_id=1654673744]
 offset_right = 1280.0

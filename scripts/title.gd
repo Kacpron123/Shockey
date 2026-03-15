@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 
 func _start_button_pressed() -> void:
 	# play scene change animation
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _quit_button_pressed() -> void:
 	get_tree().quit()
