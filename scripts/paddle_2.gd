@@ -26,9 +26,11 @@ func _physics_process(delta: float) -> void:
 	if global_position.y <= BOUND_TOP and main.get_paddle_hit_count(1) > 0:
 		main.reset_paddle_hit_count(1)
 		main.on_paddle_hit_rail(0)
+		$Paddle2Animation.play("Discharge")
 	if global_position.y >= BOUND_BOTTOM and main.get_paddle_hit_count(1) > 0:
 		main.reset_paddle_hit_count(1)
 		main.on_paddle_hit_rail(1)
+		$Paddle2Animation.play("Discharge")
 	var dir := Vector2.ZERO
 	if Input.is_action_pressed("p2_up"):    dir.y -= 1
 	if Input.is_action_pressed("p2_down"):  dir.y += 1

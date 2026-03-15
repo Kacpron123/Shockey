@@ -82,6 +82,7 @@ func on_puck_hit_paddle(player_index: int) -> void:
 		hit_bool[player_index] = true
 		hit_bool[other_index] = false
 		hit_count[player_index] += 1
+		if hit_count[player_index] > 3: hit_count[player_index] = 0
 		if player_index == 0:
 			paddle1animation.play("Hit")
 		else:
@@ -122,6 +123,9 @@ func show_hit_count_p1(hit_count_p1: int) -> void:
 	$UI/HCP1C1.visible = false
 	$UI/HCP1C2.visible = false
 	$UI/HCP1C3.visible = false
+	if (hit_count_p1 > 3):
+		$UI/HCP1C0.visible = false
+		return
 	self.get_node("UI/HCP1C" + str(hit_count_p1)).visible = true
 	
 func show_hit_count_p2(hit_count_p2: int) -> void:
@@ -129,6 +133,9 @@ func show_hit_count_p2(hit_count_p2: int) -> void:
 	$UI/HCP2C1.visible = false
 	$UI/HCP2C2.visible = false
 	$UI/HCP2C3.visible = false
+	if (hit_count_p2 > 3):
+		$UI/HCP1C0.visible = false
+		return
 	self.get_node("UI/HCP2C" + str(hit_count_p2)).visible = true
 
 func _process(delta: float) -> void:

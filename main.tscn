@@ -18,11 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://bcdlyyupbitmt" path="res://assets/sprites/paddle_overload.png" id="10_ryguw"]
 [ext_resource type="AudioStream" uid="uid://sx6y5rrtibsc" path="res://assets/sfx/overload.wav" id="10_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://cjencc6x6fkdp" path="res://assets/sfx/hit.wav" id="11_w48qg"]
-[ext_resource type="AudioStream" uid="uid://coy6ugwibu1s6" path="res://assets/music/theme.wav" id="12_vivmo"]
 [ext_resource type="Texture2D" uid="uid://rf5xhb3i21ee" path="res://assets/sprites/charge_0.png" id="15_d13ii"]
 [ext_resource type="Texture2D" uid="uid://clghpflinhp1r" path="res://assets/sprites/charge_1.png" id="16_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://c211uwdrcayij" path="res://assets/sprites/charge_2.png" id="17_0odxb"]
 [ext_resource type="Texture2D" uid="uid://r3q6rct1dxs0" path="res://assets/sprites/charge_3.png" id="18_lswn8"]
+[ext_resource type="AudioStream" uid="uid://ccywr8c085ha7" path="res://assets/music/theme.wav" id="23_d13ii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
 atlas = ExtResource("3_vivmo")
@@ -515,7 +515,7 @@ stream = ExtResource("11_w48qg")
 [node name="Music" type="Node" parent="."]
 
 [node name="Theme" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("12_vivmo")
+stream = ExtResource("23_d13ii")
 autoplay = true
 
 [node name="ResetTimer" type="Timer" parent="."]
