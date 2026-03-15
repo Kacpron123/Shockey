@@ -41,10 +41,9 @@ func _physics_process(delta: float) -> void:
 	position = position.clamp(Vector2(BOUND_LEFT, BOUND_TOP), Vector2(BOUND_RIGHT, BOUND_BOTTOM))
 
 func _trigger_overload() -> void:
-	# use overload animation
+	# TODO use overload animation
 	_is_overloaded = true
-	$Paddle1Sprite.color = Color("green")
 	await get_tree().create_timer(overload_timeout).timeout
-	$Paddle1Sprite.color = Color("magenta")
+	$Sprite1.region_rect.position.x=0
 	main.reset_paddle_hit_count(0)
 	_is_overloaded = false
