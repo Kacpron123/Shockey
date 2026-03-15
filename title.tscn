@@ -1,28 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccq7ix01y42to"]
+[gd_scene format=3 uid="uid://ccq7ix01y42to"]
 
-[ext_resource type="Script" uid="uid://1je71nydq3dr" path="res://title.gd" id="1_y7k74"]
+[ext_resource type="Script" uid="uid://1je71nydq3dr" path="res://scripts/title.gd" id="1_y7k74"]
 
-[node name="Title" type="Node2D"]
+[node name="Title" type="Node2D" unique_id=35178792]
 script = ExtResource("1_y7k74")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=1654673744]
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
 
-[node name="TitleSprite" type="ColorRect" parent="."]
+[node name="TitleSprite" type="ColorRect" parent="." unique_id=1839478697]
 offset_top = 128.0
 offset_right = 1280.0
 offset_bottom = 384.0
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="." unique_id=1722307420]
 offset_left = 512.0
 offset_top = 512.0
 offset_right = 768.0
 offset_bottom = 576.0
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="." unique_id=1343446097]
 offset_left = 512.0
 offset_top = 576.0
 offset_right = 768.0

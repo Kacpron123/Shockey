@@ -11,8 +11,8 @@ var hit_bool   := [false, true]
 var game_active := true
 
 @onready var puck            : RigidBody2D       = $Puck
-@onready var paddle1         : CharacterBody2D   = $Paddle1
-@onready var paddle2         : CharacterBody2D   = $Paddle2
+@onready var paddle1         : Paddle            = $Paddle1
+@onready var paddle2         : Paddle            = $Paddle2
 @onready var label_p1        : Label             = $UI/ScoreP1
 @onready var label_p2        : Label             = $UI/ScoreP2
 @onready var winner_p1 : Label             = $UI/WinnerP1
@@ -41,33 +41,15 @@ func get_paddle_hit_count(player_index: int) -> int:
 func reset_paddle_hit_count(player_index: int) -> void:
 	hit_count[player_index] = 0
 
-func next_paddle_charge(player_index:int) -> void:
-	var paddle_sprite;
-	if player_index == 0:
-		paddle_sprite = $Paddle1/Sprite1
-	else:
-		paddle_sprite = $Paddle2/Sprite2
-	var frame_width = paddle_sprite.texture.get_height()
-	paddle_sprite.region_rect.position.x += frame_width
-
-func reset_paddle_charge(rail_index: int) -> void:
-	var paddle_sprite;
-	if rail_index == 0:
-		paddle_sprite = $Paddle1/Sprite1
-	else:
-		paddle_sprite = $Paddle2/Sprite2
-	paddle_sprite.region_rect.position.x = 0
-func on_paddle_hit_rail(rail_index: int) -> void:
-	reset_paddle_charge(rail_index)
-	
 func on_puck_hit_paddle(player_index: int) -> void: 
 	# use charge animation
 	var other_index = 0 if player_index == 1 else 1
+	var target_paddle = paddle1 if player_index == 0 else paddle2
 	if (!hit_bool[player_index] and hit_bool[other_index]): 
 		hit_bool[player_index] = true
 		hit_bool[other_index] = false
 		hit_count[player_index] += 1
-		next_paddle_charge(player_index);
+		target_paddle.next_paddle_charge()
 	sfx_hit.play()
 
 func on_puck_hit_wall()   -> void: 
@@ -77,8 +59,8 @@ func _reset_puck(towards_player: int) -> void:
 	hit_bool = [false, false]
 	hit_bool[towards_player] = true
 	hit_count = [0, 0]
-	reset_paddle_charge(0)
-	reset_paddle_charge(1)
+	paddle1.reset_paddle_charge()
+	paddle2.reset_paddle_charge()
 	var rid := puck.get_rid()
 	puck.freeze = true
 	PhysicsServer2D.body_set_state(rid, PhysicsServer2D.BODY_STATE_TRANSFORM, Transform2D(0.0, Vector2(TABLE_WIDTH / 2.0, TABLE_HEIGHT / 2.0)))

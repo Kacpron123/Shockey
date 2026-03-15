@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" uid="uid://5sylf6lgjttj" path="res://scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://bgl8vingbgj54" path="res://scripts/puck.gd" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://bcwthu3kenc0q" path="res://scripts/goal_1.gd" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b7cx6l1fng0fn" path="res://assets/center_0000_Layer-1.png" id="2_efxa6"]
-[ext_resource type="Script" uid="uid://psufjuun4ueg" path="res://scripts/goal_2.gd" id="3_7mycd"]
-[ext_resource type="Script" uid="uid://b7d73oairemif" path="res://scripts/paddle_1.gd" id="3_lquwl"]
-[ext_resource type="Script" uid="uid://dn6w2nypiyoyq" path="res://scripts/paddle_2.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://b0yyd7pb2j3o0" path="res://scripts/goal.gd" id="4_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://5ve70qvhg7io" path="res://assets/sfx/goal.wav" id="7_kek77"]
 [ext_resource type="Texture2D" uid="uid://ccr4vgv468cmj" path="res://assets/textures/paddle.png" id="7_w48qg"]
 [ext_resource type="AudioStream" uid="uid://88nlbnf5bfyl" path="res://assets/sfx/paddle.mp3" id="8_4c57u"]
+[ext_resource type="Script" uid="uid://cyge378eagif2" path="res://scripts/paddle.gd" id="9_2cqfq"]
 [ext_resource type="AudioStream" uid="uid://jaal5sahobve" path="res://assets/sfx/wall.mp3" id="9_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bmiy22yskvhy6" path="res://icon.svg" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bv0vcubj0d6w7" path="res://assets/textures/puck.png" id="10_vivmo"]
@@ -188,7 +186,7 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="Left" type="Area2D" parent="Goals" unique_id=1575176504]
 collision_layer = 0
 collision_mask = 8
-script = ExtResource("2_1bvp3")
+script = ExtResource("4_ycdy4")
 
 [node name="LeftCollision" type="CollisionShape2D" parent="Goals/Left" unique_id=1935563642]
 position = Vector2(-48, 320)
@@ -197,7 +195,8 @@ shape = SubResource("RectangleShape2D_7mycd")
 [node name="Right" type="Area2D" parent="Goals" unique_id=489994913]
 collision_layer = 0
 collision_mask = 8
-script = ExtResource("3_7mycd")
+script = ExtResource("4_ycdy4")
+player_index = 1
 
 [node name="RightCollision" type="CollisionShape2D" parent="Goals/Right" unique_id=1410018776]
 position = Vector2(1328, 320)
@@ -208,12 +207,12 @@ position = Vector2(320, 320)
 collision_layer = 2
 collision_mask = 8
 motion_mode = 1
-script = ExtResource("3_lquwl")
+script = ExtResource("9_2cqfq")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Paddle1" unique_id=358396838]
 shape = SubResource("CircleShape2D_ig7tw")
 
-[node name="Sprite1" type="Sprite2D" parent="Paddle1" unique_id=2120101406]
+[node name="Sprite" type="Sprite2D" parent="Paddle1" unique_id=2120101406]
 texture_filter = 1
 position = Vector2(1.5, 1.5)
 scale = Vector2(2, 2)
@@ -226,12 +225,13 @@ position = Vector2(960, 320)
 collision_layer = 2
 collision_mask = 8
 motion_mode = 1
-script = ExtResource("4_lquwl")
+script = ExtResource("9_2cqfq")
+player_index = 1
 
 [node name="CollisionBox" type="CollisionShape2D" parent="Paddle2" unique_id=1707010988]
 shape = SubResource("CircleShape2D_0xm2m")
 
-[node name="Sprite2" type="Sprite2D" parent="Paddle2" unique_id=1177094156]
+[node name="Sprite" type="Sprite2D" parent="Paddle2" unique_id=1177094156]
 texture_filter = 1
 position = Vector2(1.5, 1.5)
 scale = Vector2(2, 2)
