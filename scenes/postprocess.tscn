@@ -12,6 +12,7 @@ z_index = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1430844723]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1514073470]
 top_level = true

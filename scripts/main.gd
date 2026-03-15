@@ -49,7 +49,7 @@ func on_puck_hit_paddle(player_index: int) -> void:
 		hit_bool[player_index] = true
 		hit_bool[other_index] = false
 		hit_count[player_index] += 1
-		target_paddle.next_paddle_charge()
+		#target_paddle.next_paddle_charge()
 	sfx_hit.play()
 
 func on_puck_hit_wall()   -> void: 

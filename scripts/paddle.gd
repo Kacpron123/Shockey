@@ -6,9 +6,10 @@ class_name Paddle
 @export var max_speed        : float = 600.0
 @export var acceleration     : float = 3500.0
 @export var friction         : float = 2000.0
-@export var max_hits         : int   = 3
+@export var max_hits         : int   = 2
 @export var overload_timeout : float = 3.0
 
+const SHEET_SIZE    := 48
 const TABLE_WIDTH   := 1280
 const TABLE_HEIGHT  := 640
 const PADDLE_RADIUS := 32
@@ -64,15 +65,30 @@ func _physics_process(delta: float) -> void:
 
 func _trigger_overload() -> void:
 	_is_overloaded = true
+	sprite.region_rect.position.y = SHEET_SIZE
+	play_animation(0.08)
 	await get_tree().create_timer(overload_timeout).timeout
-	sprite.region_rect.position.x = 0
-		
+	
+	reset_paddle_charge()
 	main.reset_paddle_hit_count(player_index)
 	_is_overloaded = false
 
 func next_paddle_charge() -> void:
-	var frame_width = sprite.texture.get_width() / 4.0
-	sprite.region_rect.position.x += frame_width
+	var rect := sprite.region_rect
+	rect.position.x = int(rect.position.x + SHEET_SIZE) % (3 * SHEET_SIZE)
+	sprite.region_rect = rect
+
+func play_animation(frame_time: float)->void:
+	var elapsed := 0.0
+	var x:int = 0
+	while elapsed < overload_timeout:
+		x=(x+1)%3
+		sprite.region_rect.position.x = x*SHEET_SIZE
+		
+		await get_tree().create_timer(frame_time).timeout
+		elapsed += frame_time
+
+	sprite.region_rect.position.x = 0
 
 func reset_paddle_charge() -> void:
-	sprite.region_rect.position.x = 0
+	sprite.region_rect.position = Vector2(0,0)
