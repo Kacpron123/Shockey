@@ -11,7 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://jaal5sahobve" path="res://assets/sfx/wall.mp3" id="9_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bmiy22yskvhy6" path="res://icon.svg" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bv0vcubj0d6w7" path="res://assets/textures/puck.png" id="10_vivmo"]
-[ext_resource type="Shader" uid="uid://cb7iqq8ntme8c" path="res://post_process.gdshader" id="13_w48qg"]
 [ext_resource type="Shader" uid="uid://ic86gxirw0sd" path="res://pulse.gdshader" id="13_ycdy4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycdy4"]
@@ -63,19 +62,12 @@ radius = 32.0
 [sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
 font_size = 48
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vivmo"]
-shader = ExtResource("13_w48qg")
-shader_parameter/first_color = Color(1, 0.5058824, 0.2901961, 1)
-shader_parameter/second_color = Color(0.29518467, 0.44086185, 0.30973774, 1)
-
 [node name="Main" type="Node2D" unique_id=801075516]
 script = ExtResource("1_ig7tw")
 
 [node name="BG" type="ColorRect" parent="." unique_id=2083440593]
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 1304.0
-offset_bottom = 736.0
+offset_right = 1280.0
+offset_bottom = 720.0
 color = Color(0.09411765, 0.078431375, 0.14509805, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=681116283]
@@ -264,6 +256,12 @@ region_rect = Rect2(0, 0, 48, 48)
 offset = Vector2(0, 640)
 transform = Transform2D(1, 0, 0, 1, 0, 640)
 
+[node name="BackButton" type="Button" parent="UI" unique_id=901169251]
+offset_right = 112.0
+offset_bottom = 80.0
+icon = ExtResource("10_4c57u")
+expand_icon = true
+
 [node name="ScoreP1" type="Label" parent="UI" unique_id=596870175]
 offset_left = 608.0
 offset_top = 8.0
@@ -312,12 +310,6 @@ offset_bottom = -517.0
 text = "Winner"
 label_settings = SubResource("LabelSettings_ig7tw")
 
-[node name="BackButton" type="Button" parent="UI" unique_id=490193906]
-offset_right = 88.0
-offset_bottom = 64.0
-icon = ExtResource("10_4c57u")
-expand_icon = true
-
 [node name="SFX" type="Node" parent="." unique_id=1258437257]
 
 [node name="GoalSound" type="AudioStreamPlayer" parent="SFX" unique_id=928897807]
@@ -332,13 +324,6 @@ stream = ExtResource("9_efxa6")
 [node name="ResetTimer" type="Timer" parent="." unique_id=1607986310]
 wait_time = 1.2
 one_shot = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=662887484]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=453087769]
-material = SubResource("ShaderMaterial_vivmo")
-offset_right = 1280.0
-offset_bottom = 720.0
 
 [connection signal="body_entered" from="Puck" to="Puck" method="_on_body_entered"]
 [connection signal="pressed" from="UI/BackButton" to="." method="_on_back_button_pressed"]
