@@ -1,0 +1,434 @@
+[gd_scene format=3 uid="uid://cn5av5i15t5kb"]
+
+[ext_resource type="Script" uid="uid://5sylf6lgjttj" path="res://scripts/main.gd" id="1_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://ojs6v7cxxlo" path="res://assets/sprites/rail_default.png" id="2_yc10j"]
+[ext_resource type="Texture2D" uid="uid://cjupwuxu0200u" path="res://assets/sprites/rail_discharge.png" id="3_jscy8"]
+[ext_resource type="Script" uid="uid://0gfa4207vfjn" path="res://scripts/goal.gd" id="4_jkv2x"]
+[ext_resource type="Script" uid="uid://ry7khg5b1kav" path="res://scripts/paddle.gd" id="5_jbj1t"]
+[ext_resource type="SpriteFrames" uid="uid://b1lhw6elswj8" path="res://assets/frame/paddle_new.tres" id="6_muem4"]
+[ext_resource type="Script" uid="uid://bgl8vingbgj54" path="res://scripts/puck.gd" id="7_dp3eg"]
+[ext_resource type="SpriteFrames" uid="uid://bmtpbh05tw1bt" path="res://assets/frame/puck.tres" id="8_muem4"]
+[ext_resource type="AudioStream" uid="uid://5ve70qvhg7io" path="res://assets/sfx/goal.wav" id="10_yc10j"]
+[ext_resource type="FontFile" uid="uid://cy5tlme1l0qeu" path="res://assets/fonts/Hardpixel.OTF" id="12_2f3dj"]
+[ext_resource type="Texture2D" uid="uid://rf5xhb3i21ee" path="res://assets/sprites/charge_0.png" id="13_yq6so"]
+[ext_resource type="Texture2D" uid="uid://clghpflinhp1r" path="res://assets/sprites/charge_1.png" id="14_fv21b"]
+[ext_resource type="Texture2D" uid="uid://c211uwdrcayij" path="res://assets/sprites/charge_2.png" id="15_tel4y"]
+[ext_resource type="Texture2D" uid="uid://r3q6rct1dxs0" path="res://assets/sprites/charge_3.png" id="16_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://d1llwa4d81c7p" path="res://assets/sfx/discharge.wav" id="18_5q0nq"]
+[ext_resource type="AudioStream" uid="uid://sx6y5rrtibsc" path="res://assets/sfx/overload.wav" id="19_dgi5k"]
+[ext_resource type="AudioStream" uid="uid://cjencc6x6fkdp" path="res://assets/sfx/hit.wav" id="20_j8jky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 0, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 32, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_074og"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 64, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cegan"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 96, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82xsv"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 128, 1280, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg77c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yc10j")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_074og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cegan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82xsv")
+}],
+"loop": false,
+"name": &"Discharge",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 0, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 32, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 64, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguw"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 96, 1280, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d13ii"]
+atlas = ExtResource("3_jscy8")
+region = Rect2(0, 128, 1280, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cqfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yc10j")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w48qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_getpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryguw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d13ii")
+}],
+"loop": false,
+"name": &"Discharge",
+"speed": 5.0
+}]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7dm0k"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(32, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(32, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(32, 256)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 32.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
+radius = 32.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ig7tw"]
+font = ExtResource("12_2f3dj")
+font_size = 48
+font_color = Color(0.99607843, 0.68235296, 0.20392157, 1)
+
+[node name="Main" type="Node2D" unique_id=805506636]
+script = ExtResource("1_eb6dy")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1487199199]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.09411765, 0.078431375, 0.14509805, 1)
+
+[node name="Table" type="Node2D" parent="." unique_id=704761854]
+
+[node name="TopRail" type="AnimatedSprite2D" parent="Table" unique_id=248642167]
+position = Vector2(640, 16)
+sprite_frames = SubResource("SpriteFrames_dg77c")
+animation = &"Discharge"
+
+[node name="BottomRail" type="AnimatedSprite2D" parent="Table" unique_id=758391618]
+position = Vector2(640, 624)
+sprite_frames = SubResource("SpriteFrames_2cqfq")
+animation = &"Discharge"
+
+[node name="LeftTopSprite" type="ColorRect" parent="Table" unique_id=334817402]
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 224.0
+color = Color(0.99607843, 0.68235296, 0.20392157, 1)
+
+[node name="LeftBottomSprite" type="ColorRect" parent="Table" unique_id=474220616]
+offset_top = 416.0
+offset_right = 32.0
+offset_bottom = 608.0
+color = Color(0.99607843, 0.68235296, 0.20392157, 1)
+
+[node name="RightTopSprite" type="ColorRect" parent="Table" unique_id=1872753187]
+offset_left = 1248.0
+offset_top = 32.0
+offset_right = 1280.0
+offset_bottom = 224.0
+color = Color(0.99607843, 0.68235296, 0.20392157, 1)
+
+[node name="RightBottomSprite" type="ColorRect" parent="Table" unique_id=1752780259]
+offset_left = 1248.0
+offset_top = 416.0
+offset_right = 1280.0
+offset_bottom = 608.0
+color = Color(0.99607843, 0.68235296, 0.20392157, 1)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1000990668]
+
+[node name="Top" type="StaticBody2D" parent="Walls" unique_id=1510082576 groups=["walls"]]
+collision_layer = 128
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_7dm0k")
+
+[node name="TopCollision" type="CollisionShape2D" parent="Walls/Top" unique_id=2128505127]
+position = Vector2(640, 16)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Bottom" type="StaticBody2D" parent="Walls" unique_id=525700501 groups=["walls"]]
+collision_layer = 128
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_7dm0k")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="Walls/Bottom" unique_id=1321024520]
+position = Vector2(640, 624)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="LeftTop" type="StaticBody2D" parent="Walls" unique_id=705483579 groups=["walls"]]
+collision_layer = 128
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_7dm0k")
+
+[node name="LeftTopCollision" type="CollisionShape2D" parent="Walls/LeftTop" unique_id=612785639]
+position = Vector2(16, 128)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="LeftBottom" type="StaticBody2D" parent="Walls" unique_id=92883583 groups=["walls"]]
+collision_layer = 128
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_7dm0k")
+
+[node name="LeftBottomCollision" type="CollisionShape2D" parent="Walls/LeftBottom" unique_id=1614283466]
+position = Vector2(16, 512)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="RightTop" type="StaticBody2D" parent="Walls" unique_id=770589223 groups=["walls"]]
+collision_layer = 128
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_7dm0k")
+
+[node name="RightTopCollision" type="CollisionShape2D" parent="Walls/RightTop" unique_id=1355600916]
+position = Vector2(1264, 128)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="RightBottom" type="StaticBody2D" parent="Walls" unique_id=523234790 groups=["walls"]]
+collision_layer = 128
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_7dm0k")
+
+[node name="RightBottomCollision" type="CollisionShape2D" parent="Walls/RightBottom" unique_id=778205513]
+position = Vector2(1264, 512)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Goals" type="Node2D" parent="." unique_id=855081865]
+
+[node name="Left" type="Area2D" parent="Goals" unique_id=634040563]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("4_jkv2x")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="Goals/Left" unique_id=1397003541]
+position = Vector2(-48, 320)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="Right" type="Area2D" parent="Goals" unique_id=1427273821]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("4_jkv2x")
+player_index = 1
+
+[node name="RightCollision" type="CollisionShape2D" parent="Goals/Right" unique_id=593388070]
+position = Vector2(1328, 320)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Paddle1" type="CharacterBody2D" parent="." unique_id=1560949846 groups=["paddles"]]
+position = Vector2(320, 320)
+collision_layer = 2
+collision_mask = 8
+motion_mode = 1
+script = ExtResource("5_jbj1t")
+
+[node name="PaddleCollision" type="CollisionShape2D" parent="Paddle1" unique_id=1950542868]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="PaddleAnimation" type="AnimatedSprite2D" parent="Paddle1" unique_id=992177067]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_muem4")
+animation = &"Discharge"
+frame_progress = 1.0
+offset = Vector2(1, 1)
+
+[node name="Paddle2" type="CharacterBody2D" parent="." unique_id=562174479 groups=["paddles"]]
+position = Vector2(960, 320)
+collision_layer = 2
+collision_mask = 8
+motion_mode = 1
+script = ExtResource("5_jbj1t")
+player_index = 1
+
+[node name="PaddleCollision" type="CollisionShape2D" parent="Paddle2" unique_id=1871865918]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="PaddleAnimation" type="AnimatedSprite2D" parent="Paddle2" unique_id=2138029695]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_muem4")
+animation = &"Overload"
+offset = Vector2(1, 1)
+
+[node name="Puck" type="RigidBody2D" parent="." unique_id=867629110 groups=["puck"]]
+position = Vector2(640, 320)
+collision_layer = 8
+collision_mask = 130
+physics_material_override = SubResource("PhysicsMaterial_ig7tw")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+linear_damp = 0.05
+angular_damp = 2.0
+script = ExtResource("7_dp3eg")
+
+[node name="PuckCollision" type="CollisionShape2D" parent="Puck" unique_id=1852143737]
+shape = SubResource("CircleShape2D_h2yge")
+
+[node name="PuckAnimation" type="AnimatedSprite2D" parent="Puck" unique_id=1546358480]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("8_muem4")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=162567488]
+offset = Vector2(0, 640)
+transform = Transform2D(1, 0, 0, 1, 0, 640)
+
+[node name="ScoreP1" type="Label" parent="UI" unique_id=893437513]
+offset_left = 608.0
+offset_top = 8.0
+offset_right = 640.0
+offset_bottom = 80.0
+text = "0"
+label_settings = SubResource("LabelSettings_ig7tw")
+
+[node name="HCP1C0" type="Sprite2D" parent="UI" unique_id=480944469]
+position = Vector2(320, 37)
+texture = ExtResource("13_yq6so")
+
+[node name="HCP1C1" type="Sprite2D" parent="UI" unique_id=2101352403]
+visible = false
+position = Vector2(320, 37)
+texture = ExtResource("14_fv21b")
+
+[node name="HCP1C2" type="Sprite2D" parent="UI" unique_id=785177785]
+visible = false
+position = Vector2(320, 37)
+texture = ExtResource("15_tel4y")
+
+[node name="HCP1C3" type="Sprite2D" parent="UI" unique_id=635757041]
+visible = false
+position = Vector2(320, 37)
+texture = ExtResource("16_qkpxi")
+
+[node name="HCP2C0" type="Sprite2D" parent="UI" unique_id=1868388639]
+position = Vector2(960, 37)
+texture = ExtResource("13_yq6so")
+
+[node name="HCP2C1" type="Sprite2D" parent="UI" unique_id=1053486553]
+visible = false
+position = Vector2(960, 37)
+texture = ExtResource("14_fv21b")
+
+[node name="HCP2C2" type="Sprite2D" parent="UI" unique_id=1084476285]
+visible = false
+position = Vector2(960, 37)
+texture = ExtResource("15_tel4y")
+
+[node name="HCP2C3" type="Sprite2D" parent="UI" unique_id=1407069088]
+visible = false
+position = Vector2(960, 37)
+texture = ExtResource("16_qkpxi")
+
+[node name="ScoreP2" type="Label" parent="UI" unique_id=795281184]
+offset_left = 648.0
+offset_top = 8.0
+offset_right = 680.0
+offset_bottom = 80.0
+text = "0"
+label_settings = SubResource("LabelSettings_ig7tw")
+
+[node name="WinnerP1" type="Label" parent="UI" unique_id=1528461226]
+offset_left = 256.0
+offset_top = -576.0
+offset_right = 504.0
+offset_bottom = -509.0
+text = "Winner"
+label_settings = SubResource("LabelSettings_ig7tw")
+
+[node name="WinnerP2" type="Label" parent="UI" unique_id=1370895297]
+offset_left = 896.0
+offset_top = -584.0
+offset_right = 1144.0
+offset_bottom = -517.0
+text = "Winner"
+label_settings = SubResource("LabelSettings_ig7tw")
+
+[node name="SFX" type="Node" parent="." unique_id=1174818308]
+
+[node name="GoalSound" type="AudioStreamPlayer" parent="SFX" unique_id=160082629]
+stream = ExtResource("10_yc10j")
+
+[node name="DischargeSound" type="AudioStreamPlayer" parent="SFX" unique_id=965307811]
+stream = ExtResource("18_5q0nq")
+
+[node name="OverloadSound" type="AudioStreamPlayer" parent="SFX" unique_id=643958529]
+stream = ExtResource("19_dgi5k")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="SFX" unique_id=447120596]
+stream = ExtResource("20_j8jky")
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=1731488745]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="body_entered" from="Puck" to="Puck" method="_on_body_entered"]

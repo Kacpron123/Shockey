@@ -12,8 +12,8 @@ var game_active := true
 
 @onready var toprail : AnimatedSprite2D = $Table/TopRail
 @onready var bottomrail : AnimatedSprite2D = $Table/BottomRail
-@onready var paddle1animation : AnimatedSprite2D = $Paddle1/Paddle1Animation
-@onready var paddle2animation : AnimatedSprite2D = $Paddle2/Paddle2Animation
+@onready var paddle1animation : AnimatedSprite2D = $Paddle1/PaddleAnimation
+@onready var paddle2animation : AnimatedSprite2D = $Paddle2/PaddleAnimation
 @onready var puckanimation : AnimatedSprite2D = $Puck/PuckAnimation
 
 @onready var puck            : RigidBody2D       = $Puck
@@ -29,7 +29,6 @@ var game_active := true
 @onready var sfx_hit         : AudioStreamPlayer = $SFX/HitSound
 @onready var sfx_discharge        : AudioStreamPlayer = $SFX/DischargeSound
 @onready var sfx_overload         : AudioStreamPlayer = $SFX/OverloadSound
-@onready var music_theme         : AudioStreamPlayer = $Music/Theme
 
 func _ready() -> void:
 	toprail.animation_finished.connect(_toprail_af)
@@ -132,7 +131,6 @@ func show_hit_count_p2(hit_count_p2: int) -> void:
 	self.get_node("UI/HCP2C" + str(hit_count_p2)).visible = true
 
 func _process(delta: float) -> void:
-	if not music_theme.playing: music_theme.play()
 	# use charge bar
 	label_p1.text = str(score[0])
 	label_p2.text = str(score[1])

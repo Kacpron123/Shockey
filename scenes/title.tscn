@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccq7ix01y42to"]
 
-[ext_resource type="Script" uid="uid://1je71nydq3dr" path="res://scripts/title.gd" id="1_4ignj"]
-[ext_resource type="Texture2D" uid="uid://cntem2ya3e858" path="res://assets/textures/main_no_buttons.png" id="2_pyl7j"]
-[ext_resource type="Texture2D" uid="uid://c3hh5qfvt125a" path="res://assets/textures/play.png" id="3_b3w7a"]
-[ext_resource type="Texture2D" uid="uid://i4ely70weki1" path="res://assets/textures/quit.png" id="4_4rr2b"]
+[ext_resource type="Script" uid="uid://1je71nydq3dr" path="res://title.gd" id="1_4ignj"]
+[ext_resource type="Texture2D" uid="uid://cntem2ya3e858" path="res://assets/sprites/main_no_buttons.png" id="2_pyl7j"]
+[ext_resource type="Texture2D" uid="uid://c3hh5qfvt125a" path="res://assets/sprites/play.png" id="3_b3w7a"]
+[ext_resource type="Texture2D" uid="uid://i4ely70weki1" path="res://assets/sprites/quit.png" id="4_4rr2b"]
 
 [node name="Title" type="Node2D" unique_id=35178792]
 script = ExtResource("1_4ignj")

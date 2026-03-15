@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bmtpbh05tw1bt"]
+
+[ext_resource type="Texture2D" uid="uid://xii4pgd4xvcc" path="res://assets/sprites/puck.png" id="1_trpva"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_trpva")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,21 +1,25 @@
 [gd_scene format=3 uid="uid://bk7sg7u8qh4n4"]
 
+[ext_resource type="Script" uid="uid://bsujavr1csdp" path="res://Postprocess.gd" id="1_47bfh"]
 [ext_resource type="Shader" uid="uid://cb7iqq8ntme8c" path="res://post_process.gdshader" id="1_kbw42"]
+[ext_resource type="AudioStream" uid="uid://coy6ugwibu1s6" path="res://assets/music/theme.wav" id="2_i0gwj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xt38"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbw42"]
 shader = ExtResource("1_kbw42")
-shader_parameter/first_color = Color(0.97, 0.94526505, 0.4753, 1)
-shader_parameter/second_color = Color(0.043137256, 0.09019608, 0.14901961, 1)
+shader_parameter/first_color = Color(0.011044052, 0.072469704, 0.16736019, 1)
+shader_parameter/second_color = Color(0.9027118, 0.9318953, 0.7415394, 1)
 
-[node name="Node2D" type="Node2D" unique_id=2109971418]
-z_index = 100
+[node name="Node2D" type="Node2D" unique_id=25230440]
+script = ExtResource("1_47bfh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1430844723]
+[node name="Theme" type="AudioStreamPlayer" parent="." unique_id=1281653072]
+stream = ExtResource("2_i0gwj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1673960921]
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1514073470]
-top_level = true
-material = SubResource("ShaderMaterial_6xt38")
+material = SubResource("ShaderMaterial_kbw42")
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2

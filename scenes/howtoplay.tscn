@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpj0xs2bpwqrd"]
+[gd_scene format=3 uid="uid://bpj0xs2bpwqrd"]
 
-[ext_resource type="Script" uid="uid://diivpm4idrrwl" path="res://scripts/howtoplay.gd" id="1_4wcgq"]
-[ext_resource type="FontFile" uid="uid://cy5tlme1l0qeu" path="res://assets/fonts/Hardpixel.OTF" id="1_kj5ta"]
+[ext_resource type="Script" uid="uid://diivpm4idrrwl" path="res://scripts/howtoplay.gd" id="1_25cri"]
+[ext_resource type="FontFile" uid="uid://cy5tlme1l0qeu" path="res://assets/fonts/Hardpixel.OTF" id="2_gleaf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wcgq"]
-font = ExtResource("1_kj5ta")
+font = ExtResource("2_gleaf")
 font_size = 32
-font_color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kj5ta"]
-font = ExtResource("1_kj5ta")
+font = ExtResource("2_gleaf")
 font_size = 32
-font_color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
-[node name="Howtoplay" type="Node2D"]
-script = ExtResource("1_4wcgq")
+[node name="Howtoplay" type="Node2D" unique_id=1712123320]
+scale = Vector2(0.9936639, 1)
+script = ExtResource("1_25cri")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=135332447]
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.09411765, 0.078431375, 0.14509805, 1)
+scale = Vector2(1.0024034, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="HowToPlayText" type="Label" parent="."]
+[node name="HowToPlayText" type="Label" parent="." unique_id=634470276]
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 448.0
@@ -42,16 +42,16 @@ First to 7 wins the game.
 Press R to restart."
 label_settings = SubResource("LabelSettings_4wcgq")
 
-[node name="NextButton" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="." unique_id=381327942]
 offset_left = 1152.0
 offset_top = 640.0
 offset_right = 1216.0
 offset_bottom = 704.0
 
-[node name="NextButtonLabel" type="Label" parent="."]
-offset_left = 1152.0
-offset_top = 640.0
-offset_right = 1216.0
-offset_bottom = 704.0
+[node name="NextButtonLabel" type="Label" parent="NextButton" unique_id=477308163]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(1.0216603, 1)
 text = " ->"
 label_settings = SubResource("LabelSettings_kj5ta")
