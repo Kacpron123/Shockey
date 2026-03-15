@@ -1,0 +1,14 @@
+Sprite2D
+AudioStreamPlayer
+Label
+Button
+Label      - Matches the "text" keyword.
+RichTextLabel
+AnimatedSprite2D
+AnimationPlayer
+AudioStreamPlayer      - Matches the "sound" keyword.
+Node
+ColorRect
+Timer
+CanvasLayer
+CollisionShape2D
