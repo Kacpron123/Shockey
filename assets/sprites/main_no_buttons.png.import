@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csho5684xvdwg"
-path="res://.godot/imported/paddle.png-f8d0c3e0e3b865c8bb19e5c25a28c6b2.ctex"
+uid="uid://cntem2ya3e858"
+path="res://.godot/imported/main_no_buttons.png-4b991ebf10b77dfe4bf8dbce72e519b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/paddle.png"
-dest_files=["res://.godot/imported/paddle.png-f8d0c3e0e3b865c8bb19e5c25a28c6b2.ctex"]
+source_file="res://assets/sprites/main_no_buttons.png"
+dest_files=["res://.godot/imported/main_no_buttons.png-4b991ebf10b77dfe4bf8dbce72e519b6.ctex"]
 
 [params]
 

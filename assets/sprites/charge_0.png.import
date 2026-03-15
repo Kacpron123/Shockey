@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv0vcubj0d6w7"
-path="res://.godot/imported/puck.png-69842b323a1ad89462a09b0caf26896c.ctex"
+uid="uid://rf5xhb3i21ee"
+path="res://.godot/imported/charge_0.png-c5ed9261e6360eb22928138d84aff60e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/puck.png"
-dest_files=["res://.godot/imported/puck.png-69842b323a1ad89462a09b0caf26896c.ctex"]
+source_file="res://assets/sprites/charge_0.png"
+dest_files=["res://.godot/imported/charge_0.png-c5ed9261e6360eb22928138d84aff60e.ctex"]
 
 [params]
 

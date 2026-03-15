@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export var min_speed : float = 200.0
-@export var max_speed : float = 950.0
+@export var max_speed : float = 1000.0
 
 @onready var main : Node2D = get_parent()
 

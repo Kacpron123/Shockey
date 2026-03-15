@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csho5684xvdwg"
-path="res://.godot/imported/paddle.png-f8d0c3e0e3b865c8bb19e5c25a28c6b2.ctex"
+uid="uid://clghpflinhp1r"
+path="res://.godot/imported/charge_1.png-13193c4914e45c00cf1852501d170261.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/paddle.png"
-dest_files=["res://.godot/imported/paddle.png-f8d0c3e0e3b865c8bb19e5c25a28c6b2.ctex"]
+source_file="res://assets/sprites/charge_1.png"
+dest_files=["res://.godot/imported/charge_1.png-13193c4914e45c00cf1852501d170261.ctex"]
 
 [params]
 
