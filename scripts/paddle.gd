@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 func _trigger_overload() -> void:
 	_is_overloaded = true
 	sprite.region_rect.position.y = SHEET_SIZE
-	play_animation(0.08)
+	play_animation(2,0.08)
 	await get_tree().create_timer(overload_timeout).timeout
 	
 	reset_paddle_charge()
@@ -78,9 +78,10 @@ func next_paddle_charge() -> void:
 	rect.position.x = int(rect.position.x + SHEET_SIZE) % (3 * SHEET_SIZE)
 	sprite.region_rect = rect
 
-func play_animation(frame_time: float)->void:
+func play_animation(charge_type: int ,frame_time: float)->void:
 	var elapsed := 0.0
 	var x:int = 0
+	sprite.region_rect.position.y = charge_type*SHEET_SIZE
 	while elapsed < overload_timeout:
 		x=(x+1)%3
 		sprite.region_rect.position.x = x*SHEET_SIZE
