@@ -39,7 +39,14 @@ func _physics_process(delta: float) -> void:
 	dir = dir.normalized()
 	if dir != Vector2.ZERO: velocity = velocity.move_toward(dir * max_speed, acceleration * delta)
 	else: velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	move_and_collide(velocity * delta)
+	var collision := move_and_collide(velocity * delta)
+	if collision:
+		var collider := collision.get_collider()
+		if collider != null and collider.is_in_group("puck"):
+			var normal := collision.get_normal()
+			var speed_into := -velocity.dot(normal)
+			if speed_into > 0.0:
+				collider.apply_central_impulse(-normal * speed_into * collider.mass)
 	position = position.clamp(Vector2(BOUND_LEFT, BOUND_TOP), Vector2(BOUND_RIGHT, BOUND_BOTTOM))
 
 func _trigger_overload() -> void:
@@ -48,4 +55,6 @@ func _trigger_overload() -> void:
 	$Paddle1Animation.play("Overload")
 	await get_tree().create_timer(overload_timeout).timeout
 	main.reset_paddle_hit_count(0)
+	$Paddle1Animation.play("Default_0")
 	_is_overloaded = false
+	

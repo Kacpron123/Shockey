@@ -1,6 +1,6 @@
+Label
 Sprite2D
 AudioStreamPlayer
-Label
 Button
 Label      - Matches the "text" keyword.
 RichTextLabel

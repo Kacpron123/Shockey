@@ -40,8 +40,8 @@ func _ready() -> void:
 	
 	toprail.play("Default")
 	bottomrail.play("Default")
-	paddle1animation.play("Default")
-	paddle2animation.play("Default")
+	paddle1animation.play("Default_0")
+	paddle2animation.play("Default_0")
 	puckanimation.play("Default")
 	
 	winner_p1.visible = false
@@ -50,8 +50,8 @@ func _ready() -> void:
 
 func _toprail_af(): toprail.play("Default")
 func _bottomrail_af(): bottomrail.play("Default")
-func _paddle1animation_af(): paddle1animation.play("Default")
-func _paddle2animation_af(): paddle2animation.play("Default")
+func _paddle1animation_af(): paddle1animation.play("Default_" + str(hit_count[0]))
+func _paddle2animation_af(): paddle2animation.play("Default_" + str(hit_count[1]))
 func _puckanimation_af(): puckanimation.play("Default")
 
 func player_scored(player_index: int) -> void:
@@ -84,9 +84,9 @@ func on_puck_hit_paddle(player_index: int) -> void:
 		hit_count[player_index] += 1
 		if hit_count[player_index] > 3: hit_count[player_index] = 0
 		if player_index == 0:
-			paddle1animation.play("Hit")
+			paddle1animation.play("Default_" + str(hit_count[0]))
 		else:
-			paddle2animation.play("Hit")
+			paddle2animation.play("Default_" + str(hit_count[1]))
 	sfx_hit.play()
 
 func on_puck_hit_wall()   -> void: 
@@ -107,6 +107,8 @@ func _reset_puck(towards_player: int) -> void:
 	puck.freeze = false
 	PhysicsServer2D.body_set_state(rid, PhysicsServer2D.BODY_STATE_LINEAR_VELOCITY, Vector2(x * cos(a), y * sin(a)) * 380.0)
 	game_active = true
+	paddle1animation.play("Default_0")
+	paddle2animation.play("Default_0")
 
 func _end_game(winner: int) -> void:
 	game_active = false

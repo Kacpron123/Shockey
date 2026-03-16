@@ -1,9 +1,1 @@
-res://main.tscn
-res://scripts/main.gd
-res://title.tscn
-res://title.gd
-res://howtoplay.tscn
-res://scripts/howtoplay.gd
-res://scripts/paddle_1.gd
-res://scripts/paddle_2.gd
-res://scripts/puck.gd
+res://scenes/title.tscn

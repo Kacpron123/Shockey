@@ -11,7 +11,6 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	# FIX weird ass puck/paddle interaction
 	for i in state.get_contact_count():
 		var body : Object = state.get_contact_collider_object(i)
 		if body == null: continue
