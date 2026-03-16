@@ -56,12 +56,18 @@ func _puckanimation_af(): puckanimation.play("Default")
 func player_scored(player_index: int) -> void:
 	if not game_active: return
 	game_active = false
-	score[player_index] += 1
+	score[ player_index ] += 1
 	sfx_goal.play()
 	if score[player_index] >= SCORE_TO_WIN:
 		_end_game(player_index)
 	else:
 		_reset_puck(0 if player_index == 1 else 1)
+	for i in 3:
+		$Table/Center/fill.visible = true
+		await get_tree().create_timer(0.2).timeout
+		$Table/Center/fill.visible = false
+		await get_tree().create_timer(0.1).timeout
+	$Table/Center/fill.visible = false
 
 func get_paddle_hit_count(player_index: int) -> int:
 	return hit_count[player_index]
@@ -85,6 +91,8 @@ func on_puck_hit_paddle(player_index: int) -> void:
 			paddle1animation.play("Hit")
 		else:
 			paddle2animation.play("Hit")
+		if hit_count[player_index] == 4:
+			reset_paddle_hit_count(player_index)
 	sfx_hit.play()
 
 func on_puck_hit_wall()   -> void: 
@@ -111,6 +119,8 @@ func _end_game(winner: int) -> void:
 	puck.freeze = true
 	if winner == 0: winner_p1.visible = true
 	else: winner_p2.visible = true
+	await get_tree().create_timer(3.0).timeout
+	get_tree().change_scene_to_file("res://scenes/title.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.keycode == KEY_R):

@@ -63,6 +63,6 @@ func _trigger_overload() -> void:
 	main.get_node("SFX/OverloadSound").play()
 	$PaddleAnimation.play("Overload")
 	await get_tree().create_timer(overload_timeout).timeout
-	$PaddleAnimation
+	$PaddleAnimation.play("Default")
 	main.reset_paddle_hit_count(player_index)
 	_is_overloaded = false

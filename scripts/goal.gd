@@ -9,4 +9,4 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("puck"):
-		main.player_scored(player_index)
+		main.player_scored(0 if player_index == 1 else 1)

@@ -6,8 +6,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbw42"]
 shader = ExtResource("1_kbw42")
-shader_parameter/first_color = Color(0.011044052, 0.072469704, 0.16736019, 1)
-shader_parameter/second_color = Color(0.9027118, 0.9318953, 0.7415394, 1)
+shader_parameter/first_color = Color(0.93314, 0.97, 0.4171, 1)
+shader_parameter/second_color = Color(0, 0.07500002, 0.18, 1)
 
 [node name="Node2D" type="Node2D" unique_id=25230440]
 script = ExtResource("1_47bfh")

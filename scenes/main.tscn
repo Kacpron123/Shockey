@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://5sylf6lgjttj" path="res://scripts/main.gd" id="1_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://ojs6v7cxxlo" path="res://assets/sprites/rail_default.png" id="2_yc10j"]
 [ext_resource type="Texture2D" uid="uid://cjupwuxu0200u" path="res://assets/sprites/rail_discharge.png" id="3_jscy8"]
+[ext_resource type="Texture2D" uid="uid://bp4u8mjdhw5yg" path="res://assets/sprites/light1.png" id="4_0ld40"]
 [ext_resource type="Script" uid="uid://0gfa4207vfjn" path="res://scripts/goal.gd" id="4_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://n0lvyk8jkyc4" path="res://assets/sprites/light2.png" id="5_gqmmt"]
 [ext_resource type="Script" uid="uid://ry7khg5b1kav" path="res://scripts/paddle.gd" id="5_jbj1t"]
 [ext_resource type="SpriteFrames" uid="uid://b1lhw6elswj8" path="res://assets/frame/paddle_new.tres" id="6_muem4"]
 [ext_resource type="Script" uid="uid://bgl8vingbgj54" path="res://scripts/puck.gd" id="7_dp3eg"]
@@ -208,6 +210,30 @@ offset_right = 1280.0
 offset_bottom = 608.0
 color = Color(0.99607843, 0.68235296, 0.20392157, 1)
 
+[node name="Center" type="TextureRect" parent="Table" unique_id=1553323523]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 464.0
+offset_top = 40.0
+offset_right = 644.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("4_0ld40")
+
+[node name="fill" type="TextureRect" parent="Table/Center" unique_id=341460483]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_gqmmt")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Table" unique_id=362819401]
+
 [node name="Walls" type="Node2D" parent="." unique_id=1000990668]
 
 [node name="Top" type="StaticBody2D" parent="Walls" unique_id=1510082576 groups=["walls"]]
@@ -315,6 +341,7 @@ player_index = 1
 shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="PaddleAnimation" type="AnimatedSprite2D" parent="Paddle2" unique_id=2138029695]
+texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("6_muem4")
 animation = &"Overload"
@@ -336,6 +363,7 @@ script = ExtResource("7_dp3eg")
 shape = SubResource("CircleShape2D_h2yge")
 
 [node name="PuckAnimation" type="AnimatedSprite2D" parent="Puck" unique_id=1546358480]
+texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("8_muem4")
 
